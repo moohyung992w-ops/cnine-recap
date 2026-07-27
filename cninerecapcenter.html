@@ -1,0 +1,458 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>CNINE RECAP CENTER</title>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Pretendard, Arial, sans-serif;
+      }
+
+      body {
+        background: radial-gradient(
+          circle at top,
+          #143a73 0%,
+          #071321 60%,
+          #03070d 100%
+        );
+        min-height: 100vh;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 30px;
+
+        color: white;
+      }
+
+      .container {
+        width: 900px;
+        max-width: 100%;
+      }
+
+      .top {
+        border: 1px solid #3ea6ff;
+        border-radius: 24px;
+
+        padding: 35px;
+
+        background: linear-gradient(145deg, #123a75, #06111d);
+
+        box-shadow: 0 0 35px rgba(0, 170, 255, 0.35);
+
+        position: relative;
+
+        text-align: center;
+      }
+
+      .logo {
+        width: 150px;
+        animation: float 4s ease-in-out infinite;
+
+        filter: drop-shadow(0 0 18px #79d4ff);
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-8px);
+        }
+      }
+
+      .title {
+        font-size: 48px;
+        font-weight: 800;
+
+        margin-top: 18px;
+
+        text-shadow: 0 0 16px #66ccff;
+      }
+
+      .subtitle {
+        display: inline-block;
+
+        margin-top: 15px;
+
+        padding: 9px 24px;
+
+        border-radius: 999px;
+
+        border: 1px solid #45b3ff;
+
+        color: #8fd8ff;
+      }
+
+      .time {
+        position: absolute;
+
+        top: 20px;
+        right: 20px;
+
+        background: #0f2443;
+
+        padding: 10px 18px;
+
+        border-radius: 999px;
+
+        font-weight: bold;
+
+        border: 1px solid #56c3ff;
+      }
+
+      .panel {
+        margin-top: 25px;
+
+        border-radius: 22px;
+
+        border: 1px solid #2c87d9;
+
+        background: #071524;
+
+        overflow: hidden;
+
+        box-shadow: 0 0 25px rgba(0, 150, 255, 0.2);
+      }
+
+      .panel h2 {
+        padding: 18px;
+
+        text-align: center;
+
+        background: linear-gradient(#123e79, #082342);
+      }
+
+      .notice {
+        padding: 22px;
+
+        border-top: 1px solid #204c74;
+      }
+
+      .noticeBox {
+        background: #12181d;
+
+        border: 1px solid #8b6d16;
+
+        border-radius: 15px;
+
+        padding: 16px;
+
+        margin-bottom: 18px;
+
+        color: #ffd24a;
+      }
+
+      .recap {
+        background: #211423;
+
+        border: 1px solid #8d315f;
+
+        border-radius: 18px;
+
+        padding: 30px;
+
+        text-align: center;
+      }
+
+      .recap h3 {
+        color: #ff7fbc;
+
+        margin-bottom: 20px;
+      }
+
+      .howto {
+        text-align: left;
+
+        background: #0d1522;
+
+        border: 1px solid #2c87d9;
+
+        border-radius: 14px;
+
+        padding: 20px 22px;
+
+        margin-bottom: 24px;
+      }
+
+      .howto .howtoTitle {
+        color: #64b8ff;
+
+        font-weight: bold;
+
+        font-size: 16px;
+
+        margin-bottom: 14px;
+
+        text-align: center;
+      }
+
+      .howto ol {
+        list-style: none;
+
+        counter-reset: step;
+      }
+
+      .howto li {
+        counter-increment: step;
+
+        position: relative;
+
+        padding-left: 42px;
+
+        margin-bottom: 14px;
+
+        line-height: 1.6;
+
+        font-size: 15px;
+      }
+
+      .howto li:last-child {
+        margin-bottom: 0;
+      }
+
+      .howto li::before {
+        content: counter(step);
+
+        position: absolute;
+
+        left: 0;
+        top: 0;
+
+        width: 28px;
+        height: 28px;
+
+        background: #3ea6ff;
+        color: #041018;
+
+        border-radius: 50%;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        font-weight: bold;
+        font-size: 14px;
+      }
+
+      .howto code {
+        background: #05264a;
+
+        color: #7fd4ff;
+
+        padding: 2px 8px;
+
+        border-radius: 6px;
+
+        font-family: Consolas, monospace;
+
+        font-weight: bold;
+      }
+
+      .recap p {
+        line-height: 1.8;
+
+        font-size: 17px;
+      }
+
+      .buttons {
+        display: flex;
+
+        gap: 18px;
+
+        margin-top: 28px;
+
+        flex-wrap: wrap;
+      }
+
+      button {
+        flex: 1;
+
+        padding: 18px;
+
+        border: none;
+
+        border-radius: 12px;
+
+        cursor: pointer;
+
+        font-size: 18px;
+
+        font-weight: bold;
+
+        transition: 0.25s;
+      }
+
+      .copy {
+        background: #e32424;
+        color: white;
+      }
+
+      .copy:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 0 20px rgba(255, 0, 0, 0.5);
+      }
+
+      .link {
+        background: #1db954;
+        color: white;
+      }
+
+      .link:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 0 20px rgba(0, 255, 120, 0.5);
+      }
+
+      .info {
+        margin-top: 24px;
+
+        font-size: 14px;
+
+        color: #ddd;
+
+        line-height: 1.7;
+      }
+
+      .sex {
+        margin-top: 28px;
+        text-align: center;
+        font-size: 20px;
+        font-weight: 800;
+        color: #b7e8ff;
+        letter-spacing: 2px;
+        text-shadow:
+          0 0 8px rgba(80, 180, 255, 1),
+          0 0 16px rgba(80, 180, 255, 0.7),
+          0 0 24px rgba(80, 180, 255, 0.4);
+        opacity: 1;
+      }
+
+      .toast {
+        position: fixed;
+
+        bottom: 35px;
+
+        left: 50%;
+
+        transform: translateX(-50%);
+
+        background: #1db954;
+
+        padding: 14px 30px;
+
+        border-radius: 999px;
+
+        font-weight: bold;
+
+        display: none;
+
+        box-shadow: 0 0 25px rgba(0, 255, 120, 0.4);
+      }
+
+      @media (max-width: 700px) {
+        .title {
+          font-size: 34px;
+        }
+
+        .buttons {
+          flex-direction: column;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="top">
+        <div class="time" id="clock"></div>
+
+        <img class="logo" src="logo.png" />
+
+        <div class="title">CNINE RECAP CENTER</div>
+
+        <div class="subtitle">씨나인 리캡 센터</div>
+      </div>
+
+      <div class="panel">
+        <h2>CNINE RECAP CENTER</h2>
+
+        <div class="notice">
+          <div class="recap">
+            <h3>💡리캡 인증 방법</h3>
+            <p>1. '리캡 인증 코드 복사' 클릭</p>
+            <p>2. '숲 통계 페이지 바로가기' 클릭</p>
+            <p>3. 주소 상단에 javascript: 입력 후 복사한 거 붙여넣기</p>
+
+            <div class="buttons">
+              <button class="copy">📋 리캡 인증 코드 복사</button>
+
+              <button class="link">🔍 숲 통계 페이지 바로가기</button>
+            </div>
+
+            <div class="info">
+              ※ 시청기록 페이지에서 복사한 코드를 주소창에 붙여넣어 실행하면
+              자동 인증됩니다.<br />
+
+              ※ 본인 로그인 상태에서만 인증 가능합니다.<br /><br />
+
+              <span class="sex">출처 : 티큐양봉피꺼솟</span><br />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="toast" id="toast">복사 완료!</div>
+
+    <script>
+      const code = `!function(){var s=document.createElement('script');s.id='soop-recap-loader';s.src='https://cdn.jsdelivr.net/gh/ygtqqq/soop_recap@main/recap.js';document.head.appendChild(s)}();`;
+
+      document.querySelector(".copy").onclick = () => {
+        navigator.clipboard.writeText(code);
+
+        const t = document.getElementById("toast");
+
+        t.style.display = "block";
+
+        setTimeout(() => {
+          t.style.display = "none";
+        }, 2000);
+      };
+
+      document.querySelector(".link").onclick = () => {
+        window.open(
+          "https://m.sooplive.com/statistics/a/watch/?szModule=UserLiveWatchTimeData&szMethod=watch",
+          "_blank",
+        );
+      };
+
+      function updateClock() {
+        const d = new Date();
+
+        const y = String(d.getFullYear()).slice(2);
+
+        const m = String(d.getMonth() + 1).padStart(2, "0");
+
+        const da = String(d.getDate()).padStart(2, "0");
+
+        const h = String(d.getHours()).padStart(2, "0");
+
+        const mi = String(d.getMinutes()).padStart(2, "0");
+
+        document.getElementById("clock").innerText =
+          `${y}-${m}-${da} ${h}:${mi}`;
+      }
+
+      updateClock();
+
+      setInterval(updateClock, 1000);
+    </script>
+  </body>
+</html>
